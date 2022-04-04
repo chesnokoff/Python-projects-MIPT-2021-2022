@@ -73,12 +73,14 @@ class MyLayout(Widget):
 
     def middle_creator_clicked(self):
         if self.get_total_score() >= 4:
+            self.add_to_total_scores(-4)
             self.additional_value += 0.0005
             self.start_adding_additional_value()
             self.ids.middle_creator.background_color = 'green'
 
     def hard_creator_clicked(self):
         if self.get_total_score() >= 50:
+            self.add_to_total_scores(-50)
             self.additional_value += 1
             self.start_adding_additional_value()
             self.ids.hard_creator.background_color = 'green'
