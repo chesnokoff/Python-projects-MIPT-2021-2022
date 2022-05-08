@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clicker</title>
+    <script src="{% static 'clicker/js/clicker.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'clicker/css/styles.css' %}">
+</head>
+<body>
+<div class=title>Chesnokoff dollar clicker</div>
+<table>
+    <tr>
+        <td><input type="button"
+                   value="cost is {{ cost1 }}, power is {{ power1 }}"
+                   onclick="Buy({{ cost1 }}, {{ power1 }})"/></td>
+        <td><input type="button"
+                   value="cost is {{ cost2 }}, power is {{ power2 }}"
+                   onclick="Buy({{ cost2 }}, {{ power2 }})"/></td>
+        <td><input type="button"
+                   value="cost is {{ cost3 }}, power is {{ power3 }}"
+                   onclick="Buy({{ cost3 }}, {{ power3 }})"/></td>
+    </tr>
+</table>
+<input id="Main" type="button" value="Create one dollar"
+       onclick="Click(1)"/><br>
+<span id="score">0</span>
+<form action="{% url 'create' %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Return">
+</form>
+</body>
+</html>
