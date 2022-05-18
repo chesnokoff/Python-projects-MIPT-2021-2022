@@ -1,17 +1,8 @@
 from kivy.app import App
 from kivy.uix.widget import Widget
-from kivy.uix.label import Label
-from kivy.properties import ObjectProperty
-from kivy.lang import Builder
 from kivy.core.window import Window
 from threading import Thread
 from time import sleep
-
-# Set the app size
-Window.size = (800, 700)
-
-# Designate Our .kv design file
-Builder.load_file('design.kv')
 
 
 class MyLayout(Widget):
@@ -89,7 +80,3 @@ class MyLayout(Widget):
 class CalculatorApp(App):
     def build(self):
         return MyLayout()
-
-
-if __name__ == '__main__':
-    CalculatorApp().run()
